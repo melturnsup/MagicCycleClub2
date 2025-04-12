@@ -10,16 +10,17 @@ body {
     color: white;
 }
 
-/* Scrolling Banner */
+/* Scrolling Banner - need some adjustment, snaps back to start instead of infinately looping*/
 
 .scroll-container {
     display: flex;
     align-items: center;
     height: 10vh;
     overflow: hidden;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid  white;
     position: fixed;
     background-color: black;
+    z-index: 10;
 }
 
 .scroll {
@@ -56,8 +57,7 @@ body {
 
 .banner-img {
     background-image: url('./resources/bw-cycle.jpg');
-    background-size: 1550px;
-    background-position-y:center ;
+    background-position-y: end;
     background-repeat: no-repeat;
     background-color: 0.5;
 }
@@ -77,15 +77,9 @@ body {
 
 header {
     height: 440px;
-    padding-bottom: 60px;
-    margin-bottom: 30px;
+    padding-bottom: 90px;
 }
 
-.logo {
-    width: 20%;
-    height: 20%;
-    
-}
 
 h1 {
     font-size: 5rem;
@@ -93,12 +87,20 @@ h1 {
 }
 
 
-#nav-btn1, #nav-btn2, #nav-btn3 {
-    margin: 30px 0 60px 0;
+
+/* Header Event and navigation Buttons */
+
+nav a {
+    font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(224, 57, 93);
     color: white;
-    border: none;
+    text-decoration: none;
+    margin: 30px 0 60px 0;
     padding: 10px; 
+}
+
+nav a:hover {
+    background-color: lightcoral;
 }
 
 #nav-btn1, #nav-btn2 {
@@ -107,61 +109,59 @@ h1 {
 
 /* Descriptions */
 
-.intro {
-    margin: 0px 0px 60px 60px;
-    text-align: left;
+.description-group {
+    margin: 40px 0px;
+    width: auto;
+    padding: 20px;
+    line-height: 40px;
+    text-align:center;
+   
 }
-
-.intro a {
-    color:rgb(255, 246, 74);
-}
-
 
 /* Gallery */
 
-.gallery1 img {
+.container-gallery1 img {
     display: block;
-    justify-content: space-evenly;
     width: 30%;
     margin: 1.5%;
+    margin-top: 30px;
+    margin-bottom: 60px;
     float: left;
-    
-}
 
-
-.description-container {
-   float:inline-start;
-   margin: 100px;
 }
 
 .gallery2 img {
     display: block;
     width: 100%;
-    margin: 20px 0px 0px;
+    margin-top: 40px;
     
 }
 
+#join {
+    color: rgb(255, 122, 145);
+}
 
 /* Button */
-
-.button-container {
-    display:flex;
-    justify-content: center;
-}
 
 
 #btn1, #btn2, #btn3 {
     margin: 30px 0 60px 0;
     background-color:  black;
     color: white;
-    border: none;
     padding: 10px;
+    text-decoration: none;
+    text-align: center;
 }
 
 #btn1, #btn2  {
     margin-right: 20px;
 }
 
+#btn1:hover, #btn2:hover, #btn3:hover {
+    background-color: teal;
+}
+
+/* Could adjust the buttons to just be centered instead of in columns*/
 /* Footer */
 .footer-links {
     display: grid;
@@ -191,14 +191,43 @@ footer a {
     margin-bottom: 10px;
 }
 
+/* Media Queries */
+
 @media only screen and (900px > width) {
 
-    .gallery1 img {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .container-gallery1 img {
         display: block;
         width: 100%;
         margin: 20px 0px;
+        margin-bottom: 20px;
+    }
     
+
+    footer {
+        height: auto;
+    }
+}
+
+
+/* Button Fix Up */
+
+@media only screen and (470px > width) {
+
+    .button-container2 {
+       display: flex; 
+       flex-direction: column;
     }
 
+    #btn1, #btn2, #btn3 {
+        margin: 10px 0px;
+        background-color:  black;
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+    }
  
 }
